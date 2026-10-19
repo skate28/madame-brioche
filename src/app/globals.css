@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/*
+  Fallbacks match src/content/site.ts palette.
+  Live values are set on <html> from that file.
+  Terracotta logo, cream page, butter gold, espresso text.
+*/
+:root {
+  --mb-ink: #3a2a22;
+  --mb-brand: #c45b2c;
+  --mb-brand-deep: #9a4220;
+  --mb-accent: #8da3a5;
+  --mb-salmon: #d9a75a;
+  --mb-nori: #4e6b5e;
+  --mb-rice: #fbf6ee;
+  --mb-paper: #ffffff;
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-ink: var(--mb-ink);
+  --color-brand: var(--mb-brand);
+  --color-brand-deep: var(--mb-brand-deep);
+  --color-accent: var(--mb-accent);
+  --color-salmon: var(--mb-salmon);
+  --color-nori: var(--mb-nori);
+  --color-rice: var(--mb-rice);
+  --color-paper: var(--mb-paper);
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-serif: var(--font-cormorant), Georgia, "Times New Roman", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Clears the two-row header. The menu nav adds its own scroll-margin. */
+  scroll-padding-top: 8.25rem;
+}
+
+@media (min-width: 1280px) {
+  html {
+    scroll-padding-top: 5.25rem;
+  }
+}
+
+body {
+  background-color: var(--mb-rice);
+  background-image:
+    radial-gradient(1100px 480px at 0% -10%, rgba(217, 167, 90, 0.2), transparent 60%),
+    radial-gradient(900px 420px at 100% 0%, rgba(196, 91, 44, 0.08), transparent 55%);
+  color: var(--mb-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--mb-salmon);
+  color: var(--mb-ink);
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
